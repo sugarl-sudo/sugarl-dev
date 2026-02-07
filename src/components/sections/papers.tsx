@@ -71,6 +71,7 @@ export function Papers() {
                           href={`https://doi.org/${paper.doi}`}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`${paper.title}のDOIリンク`}
                           className="text-sm text-primary hover:underline"
                         >
                           DOI
@@ -81,6 +82,7 @@ export function Papers() {
                           href={paper.pdfUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`${paper.title}のPDF`}
                           className="text-sm text-primary hover:underline"
                         >
                           PDF

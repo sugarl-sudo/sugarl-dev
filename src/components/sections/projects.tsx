@@ -30,13 +30,13 @@ export function Projects() {
           Projects
         </motion.h2>
 
-        {/* Bento Grid - featured projects get col-span-2 */}
+        {/* Bento Grid - first featured project spans 2 cols */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               variants={scaleIn}
-              className={project.featured ? "md:col-span-2 lg:col-span-2" : ""}
+              className={project.featured && index === 0 ? "md:col-span-2" : ""}
             >
               <motion.div initial={cardHover.rest} whileHover={cardHover.hover} className="h-full">
                 <Card className="h-full">
@@ -67,6 +67,7 @@ export function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`${project.title}のGitHubリポジトリ`}
                           className="text-sm text-primary hover:underline"
                         >
                           GitHub
@@ -77,6 +78,7 @@ export function Projects() {
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`${project.title}のデモ`}
                           className="text-sm text-primary hover:underline"
                         >
                           Demo

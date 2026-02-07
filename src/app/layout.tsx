@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="dark">
+    <html lang="ja" className="dark scroll-smooth">
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         {children}
       </body>
