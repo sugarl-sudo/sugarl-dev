@@ -1,12 +1,25 @@
+import { Navigation } from "@/components/navigation";
+import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { Papers } from "@/components/sections/papers";
+import { Experience } from "@/components/sections/experience";
+import { Projects } from "@/components/sections/projects";
+import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/footer";
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      {/* About Section */}
-      {/* Papers Section */}
-      {/* Experience Section */}
-      {/* Projects Section */}
-      {/* Contact Section */}
-    </main>
+    <>
+      <Navigation />
+      <main className="min-h-screen">
+        <Hero />
+        <About />
+        <Papers />
+        <Experience />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
