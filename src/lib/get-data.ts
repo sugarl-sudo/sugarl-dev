@@ -18,9 +18,7 @@ async function fromNotion<T>(fetcher: () => Promise<T>, fallback: T): Promise<T>
 }
 
 export async function getProfile(): Promise<Profile> {
-  if (!useNotion) return staticProfile;
-  const { getProfile: fetch } = await import("@/lib/notion");
-  return fromNotion(fetch, staticProfile);
+  return staticProfile;
 }
 
 export async function getPapers(): Promise<Paper[]> {

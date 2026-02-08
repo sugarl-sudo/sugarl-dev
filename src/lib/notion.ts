@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 import { unstable_cache } from "next/cache";
-import type { Paper, Experience, Project, Profile } from "@/types";
+import type { Paper, Experience, Project } from "@/types";
 import type {
   PageObjectResponse,
   RichTextItemResponse,
@@ -55,34 +55,6 @@ function multiSelectOf(page: PageObjectResponse, name: string): string[] {
 // ---------------------------------------------------------------------------
 // Fetch functions
 // ---------------------------------------------------------------------------
-
-async function fetchProfileFromNotion(): Promise<Profile> {
-  const dbId = process.env.NOTION_PROFILE_DB_ID!;
-  const res = await notion.dataSources.query({ data_source_id: dbId, page_size: 1 });
-  const page = res.results[0] as PageObjectResponse;
-
-  const skillsRaw = textOf(page, "Skills");
-  let skills: Profile["skills"] = [];
-  try {
-    skills = JSON.parse(skillsRaw);
-  } catch {
-    // Skills is not valid JSON — leave empty
-  }
-
-  return {
-    name: textOf(page, "Name"),
-    nameEn: textOf(page, "NameEn"),
-    title: textOf(page, "Title"),
-    bio: textOf(page, "Bio"),
-    university: textOf(page, "University"),
-    department: textOf(page, "Department"),
-    email: textOf(page, "Email"),
-    github: urlOf(page, "GitHub") ?? (textOf(page, "GitHub") || undefined),
-    twitter: textOf(page, "Twitter") || undefined,
-    linkedin: textOf(page, "LinkedIn") || undefined,
-    skills,
-  };
-}
 
 async function fetchPapersFromNotion(): Promise<Paper[]> {
   const dbId = process.env.NOTION_PAPERS_DB_ID!;
@@ -153,10 +125,6 @@ async function fetchProjectsFromNotion(): Promise<Project[]> {
 // ---------------------------------------------------------------------------
 
 const REVALIDATE = 3600; // 1 hour
-
-export const getProfile = unstable_cache(fetchProfileFromNotion, ["notion-profile"], {
-  revalidate: REVALIDATE,
-});
 
 export const getPapers = unstable_cache(fetchPapersFromNotion, ["notion-papers"], {
   revalidate: REVALIDATE,
