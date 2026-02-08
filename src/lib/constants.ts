@@ -11,6 +11,6 @@ export const NAV_ITEMS: NavItem[] = [
 export const SITE_CONFIG = {
   title: "Portfolio | Yuta Sato",
   description:
-    "佐藤悠太のポートフォリオサイト - 研究・インターン・プロジェクト",
+    "佐藤裕太のポートフォリオサイト - MathAI研究・インターン・プロジェクト",
   url: "https://yutasato.dev",
 };
