@@ -18,23 +18,25 @@ async function fromNotion<T>(fetcher: () => Promise<T>, fallback: T): Promise<T>
 }
 
 export async function getProfile(): Promise<Profile> {
-  return staticProfile;
+  if (!useNotion || !process.env.NOTION_PROFILE_DB_ID) return staticProfile;
+  const { getProfile: fetch } = await import("@/lib/notion");
+  return fromNotion(fetch, staticProfile);
 }
 
 export async function getPapers(): Promise<Paper[]> {
-  if (!useNotion) return staticPapers;
+  if (!useNotion || !process.env.NOTION_PAPERS_DB_ID) return staticPapers;
   const { getPapers: fetch } = await import("@/lib/notion");
   return fromNotion(fetch, staticPapers);
 }
 
 export async function getExperiences(): Promise<Experience[]> {
-  if (!useNotion) return staticExperiences;
+  if (!useNotion || !process.env.NOTION_EXPERIENCES_DB_ID) return staticExperiences;
   const { getExperiences: fetch } = await import("@/lib/notion");
   return fromNotion(fetch, staticExperiences);
 }
 
 export async function getProjects(): Promise<Project[]> {
-  if (!useNotion) return staticProjects;
+  if (!useNotion || !process.env.NOTION_PROJECTS_DB_ID) return staticProjects;
   const { getProjects: fetch } = await import("@/lib/notion");
   return fromNotion(fetch, staticProjects);
 }

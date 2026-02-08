@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@notionhq/client": "^5.9.0",
+    "@notionhq/client": "^2.3.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.33.0",
