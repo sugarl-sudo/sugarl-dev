@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { profile } from "@/lib/data";
+import type { Profile } from "@/types";
 import { SectionWrapper } from "@/components/section-wrapper";
 
-export function Contact() {
+interface ContactProps {
+  profile: Profile;
+}
+
+export function Contact({ profile }: ContactProps) {
   return (
     <SectionWrapper id="contact">
       <motion.div

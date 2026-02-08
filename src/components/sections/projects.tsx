@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, scaleIn, cardHover } from "@/lib/animations";
-import { projects } from "@/lib/data";
+import type { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -14,7 +14,11 @@ import {
 } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 
-export function Projects() {
+interface ProjectsProps {
+  projects: Project[];
+}
+
+export function Projects({ projects }: ProjectsProps) {
   return (
     <SectionWrapper id="projects">
       <motion.div

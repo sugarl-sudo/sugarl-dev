@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { profile } from "@/lib/data";
+import type { Profile } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { SectionWrapper } from "@/components/section-wrapper";
 
-export function About() {
+interface AboutProps {
+  profile: Profile;
+}
+
+export function About({ profile }: AboutProps) {
   return (
     <SectionWrapper id="about">
       <motion.div

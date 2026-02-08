@@ -2,9 +2,13 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, textReveal, staggerContainer } from "@/lib/animations";
-import { profile } from "@/lib/data";
+import type { Profile } from "@/types";
 
-export function Hero() {
+interface HeroProps {
+  profile: Profile;
+}
+
+export function Hero({ profile }: HeroProps) {
   return (
     <section
       id="hero"

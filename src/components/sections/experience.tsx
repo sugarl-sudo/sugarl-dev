@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations";
-import { experiences } from "@/lib/data";
+import type { Experience as ExperienceType } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { SectionWrapper } from "@/components/section-wrapper";
 
-export function Experience() {
+interface ExperienceProps {
+  experiences: ExperienceType[];
+}
+
+export function Experience({ experiences }: ExperienceProps) {
   return (
     <SectionWrapper id="experience">
       <motion.div

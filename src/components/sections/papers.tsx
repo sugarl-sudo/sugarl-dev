@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, cardHover } from "@/lib/animations";
-import { papers } from "@/lib/data";
+import type { Paper } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -14,7 +14,11 @@ import {
 } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 
-export function Papers() {
+interface PapersProps {
+  papers: Paper[];
+}
+
+export function Papers({ papers }: PapersProps) {
   return (
     <SectionWrapper id="papers">
       <motion.div
