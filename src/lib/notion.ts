@@ -89,6 +89,7 @@ async function fetchExperiencesFromNotion(): Promise<Experience[]> {
   const dbId = process.env.NOTION_EXPERIENCES_DB_ID!;
   const res = await notion.databases.query({
     database_id: dbId,
+    sorts: [{ timestamp: "created_time", direction: "descending" }],
   });
 
   return (res.results as PageObjectResponse[]).map((page) => ({
@@ -122,7 +123,7 @@ async function fetchProjectsFromNotion(): Promise<Project[]> {
 // Cached exports (revalidate every hour)
 // ---------------------------------------------------------------------------
 
-const REVALIDATE = 3600;
+const REVALIDATE = 10;
 
 export const getPapers = unstable_cache(fetchPapersFromNotion, ["notion-papers"], {
   revalidate: REVALIDATE,

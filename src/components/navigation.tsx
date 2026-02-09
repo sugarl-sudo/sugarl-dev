@@ -56,7 +56,7 @@ export function Navigation() {
         aria-label="メインナビゲーション"
       >
         <a href="#hero" className="text-lg font-bold text-foreground">
-          YS
+          SL
         </a>
 
         {/* Mobile menu button */}
