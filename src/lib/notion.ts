@@ -123,7 +123,7 @@ async function fetchProjectsFromNotion(): Promise<Project[]> {
 // Cached exports (revalidate every hour)
 // ---------------------------------------------------------------------------
 
-const REVALIDATE = 10;
+const REVALIDATE = 86400;
 
 export const getPapers = unstable_cache(fetchPapersFromNotion, ["notion-papers"], {
   revalidate: REVALIDATE,
