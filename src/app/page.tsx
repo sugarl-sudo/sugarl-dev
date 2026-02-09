@@ -26,9 +26,20 @@ export default async function Home() {
       <Navigation />
       <main className="min-h-screen">
         <Hero profile={profile} />
-        <About profile={profile} />
+
+        {/* Experience & Skills — side by side */}
+        <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+            <div className="lg:col-span-3">
+              <Experience experiences={experiences} />
+            </div>
+            <div className="lg:col-span-2">
+              <About profile={profile} />
+            </div>
+          </div>
+        </section>
+
         <Papers papers={papers} />
-        <Experience experiences={experiences} />
         <Projects projects={projects} />
         <Contact profile={profile} />
       </main>
