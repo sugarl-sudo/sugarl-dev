@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "佐藤 裕太",
   nameEn: "Yuta Sato",
   title: "大学院生 / MLエンジニア",
-  bio: "千葉大学大学院 川本・計良研究室に所属する修士2年。MathAI・深層学習・Chain-of-Thoughtの研究に取り組みながら、複数企業でMLエンジニア・データエンジニアとしてのインターンシップ経験を積んでいます。Mercari challengar hackathon 2025 最優秀賞受賞。",
+  bio: "千葉大学大学院 川本・計良研究室に所属する修士2年。MathAIの研究に取り組みながら、複数企業でMLエンジニア・データエンジニアとしてのインターンシップ経験を積んでいます。",
   university: "千葉大学大学院",
   department: "川本・計良研究室（修士2年）",
   email: "sato.yuta0112@gmail.com",
