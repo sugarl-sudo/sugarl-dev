@@ -22,7 +22,7 @@ export const profile: Profile = {
     },
     {
       category: "インフラ・ツール",
-      items: ["Docker", "AWS", "GCP", "Terraform", "Git/GitHub"],
+      items: ["Docker", "AWS", "GCP", "Terraform", "Snowflake", "Git/GitHub"],
     },
     {
       category: "研究分野",

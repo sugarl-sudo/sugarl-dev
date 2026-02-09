@@ -44,6 +44,12 @@ function selectOf(page: PageObjectResponse, name: string): string {
   return p.type === "select" ? (p.select?.name ?? "") : "";
 }
 
+function numberOf(page: PageObjectResponse, name: string): number {
+  const p = page.properties[name];
+  if (!p) return 0;
+  return p.type === "number" ? (p.number ?? 0) : 0;
+}
+
 // ---------------------------------------------------------------------------
 // Fetch functions
 // ---------------------------------------------------------------------------
@@ -71,7 +77,7 @@ async function fetchPapersFromNotion(): Promise<Paper[]> {
       .map((s) => s.trim())
       .filter(Boolean),
     venue: textOf(page, "ジャーナル名・会議名"),
-    year: 0, // Not in Notion DB — will be 0 unless column is added
+    year: numberOf(page, "Year"),
     abstract: "", // Not in Notion DB
     tags: [],
     pdfUrl: urlOf(page, "arxivリンク"),
