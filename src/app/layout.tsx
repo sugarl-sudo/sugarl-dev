@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
+import { Analytics } from "@vercel/analytics/next";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
       </head>
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
