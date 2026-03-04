@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       </head>
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
